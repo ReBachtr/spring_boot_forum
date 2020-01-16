@@ -50,7 +50,7 @@
 <body>
 <div class="container-fluid main">
     <div class="row">
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <div class="container-fluid col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Post</h2>
             <hr>
             <form action="/publish" method="post">
@@ -66,16 +66,16 @@
                     <textarea type="text" class="form-control" th:text="${tag}" id="tag" name="tag" rows="1"
                            placeholder="Related tags"></textarea>
                 </div>
-<!--                <div class="container-fluid main">-->
-<!--                    <div class="row">-->
-<!--                <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12" th:text="${error}"></div>-->
-                <div class="alert alert-danger" th:text="${error}"
-                      th:if="#{error != null}"></div>
-<!--                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">-->
-                <button type="submit" class="btn btn-success btn-publish">Post</button>
-<!--                </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${error}" th:if="${error!=null}"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                             <button type="submit" class="btn btn-success btn-publish">Post</button>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">

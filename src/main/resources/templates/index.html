@@ -57,16 +57,18 @@
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>Topics</h2>
             <hr>
-            <div class="media">
+            <div class="media" th:each="question : ${questions}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-rounded" src="https://avatars3.githubusercontent.com/u/44912467?v=4" alt="...">
+                        <img class="media-object img-rounded"
+                             th:src="${question.user.avatarUrl}"
+                             alt="...">
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Media heading</h4>
-                    Balabalabala <br>
-                    <span class="text-desc">2 replies; 31 views; 1 h </span>
+                    <h4 class="media-heading" th:text="${question.title}"></h4>
+                    <span th:text="${question.description}"></span> <br>
+                    <span class="text-desc"><span th:text="${question.commentCount}"></span> replies • <span th:text="${question.viewCount}"></span> views • <span th:text="${#dates.format(question.gmtCreate, 'yyyy-MM-dd HH:mm')}"></span></span>
                 </div>
             </div>
         </div>
